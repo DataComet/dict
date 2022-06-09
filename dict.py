@@ -36,21 +36,24 @@ help = '''Hello and welcome to the dictionary, available commands:
   quit   - quit the program'''
 print(help)
 
-while True: ## REPL - Read Execute Program Loop
-    cmd = input("Command: ").lower().strip()
-    if cmd == "list":
-        print('Here is the list: ')
-        print(read_dict(conn))
-    elif cmd == "add":
-        word = input("  Word: ")
-        translation = input("  Translation: ")
-        add_word(conn, word, translation)
-        print(f" The word: {word} is added, and the is translation is {translation}.")
-    elif cmd == "delete":
-        ID = input("  ID: ")
-        delete_word(conn, ID)
-        print(f" Deleted ID {ID}")
-    elif cmd == "quit":
-        save_dict(conn)
-        print('It is saved!')
-        exit()
+def main():
+    while True: ## REPL - Read Execute Program Loop
+        cmd = input("Command: ").lower().strip()
+        if cmd == "list":
+            print('Here is the list: ')
+            print(read_dict(conn))
+        elif cmd == "add":
+            word = input("  Word: ")
+            translation = input("  Translation: ")
+            add_word(conn, word, translation)
+            print(f" The word: {word} is added, and the is translation is {translation}.")
+        elif cmd == "delete":
+            ID = input("  ID: ")
+            delete_word(conn, ID)
+            print(f" Deleted ID {ID}")
+        elif cmd == "quit":
+            save_dict(conn)
+            print('It is saved!')
+            exit()
+main()
+
