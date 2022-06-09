@@ -40,8 +40,8 @@ def main():
     while True: ## REPL - Read Execute Program Loop
         cmd = input("Command: ").lower().strip()
         if cmd == "list":
-            print('Here is the list: ')
-            print(read_dict(conn))
+            for i, wd, trans in read_dict(conn):
+                print(f"{i}: {wd} - {trans}")
         elif cmd == "add":
             word = input("  Word: ")
             translation = input("  Translation: ")
@@ -56,4 +56,3 @@ def main():
             print('It is saved!')
             exit()
 main()
-
