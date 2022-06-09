@@ -25,8 +25,15 @@ def save_dict(C):
     cur.execute("COMMIT;")
     cur.close()
 
+help = '''Hello and welcome to the dictionary, available commands:
+  add    - add word
+  delete - delete word
+  list   - list all in the dictionary
+  quit   - quit the program'''
+print(help)
+
 while True: ## REPL - Read Execute Program Loop
-    cmd = input("Command: ")
+    cmd = input("Command: ").lower().strip()
     if cmd == "list":
         print(read_dict(conn))
     elif cmd == "add":
